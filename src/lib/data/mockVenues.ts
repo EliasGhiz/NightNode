@@ -1,0 +1,281 @@
+import type { Venue } from "../types";
+
+const now = () => new Date().toISOString();
+
+export const MOCK_VENUES: Venue[] = [
+  {
+    id: "woodys-phl",
+    slug: "woodys-philadelphia",
+    name: "Woody's Philadelphia",
+    city: "philadelphia",
+    coordinates: { latitude: 39.9499, longitude: -75.1635 },
+    waitMinutes: 18,
+    lineEstimate: "Line wraps toward 13th",
+    updatedAt: now(),
+    busyness: { label: "Busy", score: 82, trend: "rising" },
+    crowdMix: { men: 48, women: 52, label: "48:52" },
+    vibeTags: ["lgbtq", "downtown", "club"],
+    musicTags: ["top-40", "latin"],
+    priceTier: "Medium",
+    rating: 4.4,
+    entryRules: {
+      age: "21+",
+      dressCode: "Express yourself",
+      idRequired: true,
+      cover: { amount: 15, currency: "USD", note: "$5 before 10pm" },
+    },
+    specials: [
+      {
+        id: "woodys-1",
+        title: "Drag Bingo warmup",
+        window: "8:00-9:30 PM",
+      },
+    ],
+    safety: {
+      transit: "Broad St Line to Walnut-Locust",
+      notes: ["Ride-share zone on Spruce", "Security sweep every 20 min"],
+      flags: ["Rain after midnight"],
+      lastCall: "1:45 AM",
+    },
+    alerts: [
+      {
+        id: "woodys-alert-1",
+        type: "capacity",
+        message: "Dance floor at 85%",
+        createdAt: now(),
+      },
+    ],
+    reports: [
+      {
+        id: "woodys-report-1",
+        venueId: "woodys-phl",
+        waitMinutes: 16,
+        lineLength: "medium",
+        submittedAt: now(),
+        submittedBy: "@phillylate",
+        confidence: 0.78,
+        verified: true,
+        note: "Main room packed, upstairs chill",
+      },
+    ],
+    verification: { score: 88, streak: 6, lastVerifiedAt: now() },
+    status: "busy",
+    coverImage:
+      "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80",
+    heroImage:
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80",
+    openHours: [
+      { day: "Thu", open: "6:00 PM", close: "2:00 AM" },
+      { day: "Fri", open: "6:00 PM", close: "2:00 AM" },
+      { day: "Sat", open: "6:00 PM", close: "2:00 AM" },
+    ],
+    history: [
+      { day: "Thu", capacity: 64, wait: 10, ratio: "47:53", vibe: "Chill" },
+      { day: "Fri", capacity: 88, wait: 22, ratio: "48:52", vibe: "Rowdy" },
+      { day: "Sat", capacity: 93, wait: 28, ratio: "46:54", vibe: "Rowdy" },
+      { day: "Sun", capacity: 55, wait: 6, ratio: "50:50", vibe: "Chill" },
+    ],
+  },
+  {
+    id: "noto-phl",
+    slug: "noto-philadelphia",
+    name: "NOTO Philadelphia",
+    city: "philadelphia",
+    coordinates: { latitude: 39.9554, longitude: -75.1443 },
+    waitMinutes: 25,
+    lineEstimate: "VIP moving, GA slow",
+    updatedAt: now(),
+    busyness: { label: "Packed", score: 90, trend: "steady" },
+    crowdMix: { men: 55, women: 45, label: "55:45" },
+    vibeTags: ["club", "downtown", "rooftop"],
+    musicTags: ["house", "top-40"],
+    priceTier: "High",
+    rating: 4.6,
+    entryRules: {
+      age: "21+",
+      dressCode: "Elevated",
+      idRequired: true,
+      cover: { amount: 30, currency: "USD", note: "Ladies free before 11" },
+    },
+    specials: [
+      { id: "noto-special", title: "Guest DJ", window: "11:00 PM" },
+    ],
+    safety: {
+      transit: "Market-Frankford Line to 2nd",
+      notes: ["Tow zone on Callowhill", "Street team escorts to rideshare"],
+      flags: ["Construction detour"],
+      lastCall: "2:00 AM",
+    },
+    alerts: [
+      {
+        id: "noto-alert-1",
+        type: "line_drop",
+        message: "VIP down to 5 min",
+        createdAt: now(),
+      },
+    ],
+    reports: [
+      {
+        id: "noto-report-1",
+        venueId: "noto-phl",
+        waitMinutes: 24,
+        lineLength: "long",
+        submittedAt: now(),
+        submittedBy: "Venue",
+        confidence: 0.92,
+        verified: true,
+        note: "Table check-ins backed up",
+      },
+    ],
+    verification: { score: 91, streak: 7, lastVerifiedAt: now() },
+    status: "full",
+    coverImage:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+    heroImage:
+      "https://images.unsplash.com/photo-1464375117522-1311d6a5b81b?auto=format&fit=crop&w=1400&q=80",
+    openHours: [
+      { day: "Fri", open: "9:00 PM", close: "2:00 AM" },
+      { day: "Sat", open: "9:00 PM", close: "2:00 AM" },
+    ],
+    history: [
+      { day: "Thu", capacity: 58, wait: 12, ratio: "52:48", vibe: "Chill" },
+      { day: "Fri", capacity: 95, wait: 26, ratio: "57:43", vibe: "Energetic" },
+      { day: "Sat", capacity: 97, wait: 32, ratio: "55:45", vibe: "Rowdy" },
+    ],
+  },
+  {
+    id: "higher-ground",
+    slug: "higher-ground-austin",
+    name: "Higher Ground Austin",
+    city: "austin",
+    coordinates: { latitude: 30.2663, longitude: -97.7419 },
+    waitMinutes: 12,
+    lineEstimate: "Half block, moving",
+    updatedAt: now(),
+    busyness: { label: "Active", score: 63, trend: "steady" },
+    crowdMix: { men: 45, women: 55, label: "45:55" },
+    vibeTags: ["speakeasy", "rooftop"],
+    musicTags: ["live", "house"],
+    priceTier: "Medium",
+    rating: 4.7,
+    entryRules: {
+      age: "21+",
+      dressCode: "Smart casual",
+      idRequired: true,
+      cover: { amount: 20, currency: "USD", note: "Free before 9" },
+    },
+    specials: [
+      { id: "hg-special", title: "House of Higher happy hour", window: "6-8 PM" },
+    ],
+    safety: {
+      transit: "MetroRapid stop on Congress",
+      notes: ["Use alley pick-up", "Bike valet until 1am"],
+      flags: ["Heat advisory"],
+      lastCall: "2:00 AM",
+    },
+    alerts: [
+      {
+        id: "hg-alert-1",
+        type: "promo",
+        message: "Spritz flights $18",
+        createdAt: now(),
+      },
+    ],
+    reports: [
+      {
+        id: "hg-report-1",
+        venueId: "higher-ground",
+        waitMinutes: 10,
+        lineLength: "short",
+        submittedAt: now(),
+        submittedBy: "@southcongress",
+        confidence: 0.68,
+        verified: true,
+        note: "Rooftop breeze, main floor chill",
+      },
+    ],
+    verification: { score: 80, streak: 4, lastVerifiedAt: now() },
+    status: "open",
+    coverImage:
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80",
+    heroImage:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80",
+    openHours: [
+      { day: "Wed", open: "5:00 PM", close: "2:00 AM" },
+      { day: "Thu", open: "5:00 PM", close: "2:00 AM" },
+      { day: "Fri", open: "5:00 PM", close: "2:00 AM" },
+      { day: "Sat", open: "5:00 PM", close: "2:00 AM" },
+    ],
+    history: [
+      { day: "Thu", capacity: 52, wait: 8, ratio: "44:56", vibe: "Chill" },
+      { day: "Fri", capacity: 75, wait: 15, ratio: "45:55", vibe: "Energetic" },
+      { day: "Sat", capacity: 83, wait: 18, ratio: "46:54", vibe: "Energetic" },
+    ],
+  },
+  {
+    id: "tootsies-nash",
+    slug: "tootsies-orchid-lounge",
+    name: "Tootsies Orchid Lounge",
+    city: "nashville",
+    coordinates: { latitude: 36.1618, longitude: -86.7816 },
+    waitMinutes: 9,
+    lineEstimate: "Quick ID check",
+    updatedAt: now(),
+    busyness: { label: "Active", score: 58, trend: "falling" },
+    crowdMix: { men: 52, women: 48, label: "52:48" },
+    vibeTags: ["live", "country", "historic"],
+    musicTags: ["live", "top-40"],
+    priceTier: "Low",
+    rating: 4.6,
+    entryRules: {
+      age: "21+",
+      dressCode: "Boots welcome",
+      idRequired: true,
+      cover: { amount: 10, currency: "USD", note: "Pay band tip jar" },
+    },
+    specials: [
+      { id: "tootsies-special", title: "Writer's round", window: "7-9 PM" },
+    ],
+    safety: {
+      transit: "Broadway rideshare on 5th",
+      notes: ["Mounted patrol sweeps midnight"],
+      flags: ["Preds home game"],
+      lastCall: "2:30 AM",
+    },
+    alerts: [
+      {
+        id: "tootsies-alert-1",
+        type: "safety",
+        message: "Traffic shift on Broadway",
+        createdAt: now(),
+      },
+    ],
+    reports: [
+      {
+        id: "tootsies-report-1",
+        venueId: "tootsies-nash",
+        waitMinutes: 8,
+        lineLength: "short",
+        submittedAt: now(),
+        submittedBy: "Venue",
+        confidence: 0.9,
+        verified: true,
+        note: "Second floor open seating",
+      },
+    ],
+    verification: { score: 84, streak: 5, lastVerifiedAt: now() },
+    status: "open",
+    coverImage:
+      "https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=1200&q=80",
+    heroImage:
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80",
+    openHours: [
+      { day: "Daily", open: "10:00 AM", close: "3:00 AM" },
+    ],
+    history: [
+      { day: "Thu", capacity: 49, wait: 6, ratio: "50:50", vibe: "Chill" },
+      { day: "Fri", capacity: 72, wait: 12, ratio: "53:47", vibe: "Energetic" },
+      { day: "Sat", capacity: 85, wait: 18, ratio: "55:45", vibe: "Rowdy" },
+    ],
+  },
+];
